@@ -13,13 +13,19 @@
 
 Route::get('/', 'PageController@home');
 
-
 Route::get('/about', 'PageController@about');
-
 
 Route::get('/contact', 'PageController@contact');
 
 
-Route::get('/posts', 'PostsController@index');
-Route::get('/posts/create', 'PostsController@create');
-Route::post('/posts/store', 'PostsController@store');
+/*
+    GET /posts (index)
+    GET /posts/create (create)
+    POST /posts (store)
+    GET /posts/{id} (show)
+    GET /posts/{id}/edit (edit)
+    PATCH /posts/{id} (update)
+    DELETE /posts/{id} (delete)
+*/
+
+Route::resource('/posts', 'PostsController');

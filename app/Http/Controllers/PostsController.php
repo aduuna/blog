@@ -2,41 +2,104 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Post;
-
-use Illuminate\Support\Facades\Date;
-use Faker\Provider\DateTime;
+use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
-    //
-    public function index(){
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
         $posts = Post::all();
-        return view('posts.index', [
-            'posts'=> $posts
-        ]);
+
+        return view('posts.index', compact('posts'));
     }
 
-
-    public function create(){
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         return view('posts.create');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        Post::create([
+            'title' => request('title'),
+            'author' => request('author'),
+            'body' => request('body'),
+            'date_published' => \Carbon\Carbon::now(),
+        ]);
 
-    public function store(){
-        
-        $post = new Post();
+        return redirect('/posts');
+    }
 
-        $post->title = request('title');
-        $post->body = request('body');
-        $post->author = request('author');
-        $post->date_published = "2019-07-18 20:41:35.597864";
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Post $post)
+    {
+        return view('posts.show', compact('post'));
+    }
 
-        $post->save();
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Post $post)
+    {
+        return view('posts.edit', compact('post'));
+    }
 
-        return redirect('/posts/');
-        
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Post $post)
+    {
+        //
+        $post->update([
+            'title'=> request('title'),
+            'author'=> request('author'),
+            'body'=> request('body')
+        ]);
+
+        return view('posts.show', compact('post'));
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Post $post)
+    {
+        //
+        $post->delete();
+
+        return redirect('/posts');
     }
 }
