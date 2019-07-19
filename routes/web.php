@@ -20,12 +20,6 @@ Route::get('/about', 'PageController@about');
 Route::get('/contact', 'PageController@contact');
 
 
-Route::get('/blog', function () {
-    return view('blog', [
-            'posts' => [
-            "The President is here",
-            "Ghana is the only place I find peace",
-            "Freemium Bonaza"
-        ]
-    ]);
-});
+Route::get('/posts', 'PostsController@index');
+Route::get('/posts/create', 'PostsController@create');
+Route::post('/posts/store', 'PostsController@store');

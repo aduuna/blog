@@ -11,27 +11,29 @@
 </head>
 <body>
 
-    <div class="container-fluid">
+    @section('navbar')
 
-        <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light">
+    <div class="container">
             <div class="navbar-nav">
                 <a class="navbar-brand">Blog</a>
             </div>
             <button class="btn btn-dark my-2 my-sm-0" type="submit">Login</button>
-        </nav>
+        </div>
+    </nav>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            @section('navbar')
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarnavAltMarkup" aria-controls="navbarnavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="collapse navbar-collapse" id="navbarnavAltMarkup">
                 <div class="navbar-nav">
                     <div class="nav-item"><a class="nav-link" href="/">Home</a></div>
                     <div class="nav-item"><a class="nav-link" href="/about">About</a></div>
                     <div class="nav-item"><a class="nav-link" href="/contact">Contact</a></div>
-                    <div class="nav-item"><a class="nav-link" href="/blog">Blog</a></div>
+                    <div class="nav-item"><a class="nav-link" href="/posts">Blog</a></div>
                 </div>
             </div>
 
@@ -39,9 +41,13 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
             </form>
-            @show
-        </nav>
-        <br>
+        </div>
+    </nav>
+    <br>
+    @show
+
+    <div class="container-fluid">
+        
         <div class="container content">
             
             @section('content')
