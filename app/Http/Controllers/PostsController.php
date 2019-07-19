@@ -37,12 +37,14 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        Post::create([
-            'title' => request('title'),
-            'author' => request('author'),
-            'body' => request('body'),
-            'date_published' => \Carbon\Carbon::now(),
+        $validated = request()->validate([
+            'title' => ['required', 'min:3', 'max:255'],
+            'author' => ['required', 'min:3', 'max:100'],
+            'body' => ['required', 'min:3'],
         ]);
+
+        $validated['date_published'] = \Carbon\Carbon::now();
+        Post::create($validated);
 
         return redirect('/posts');
     }
