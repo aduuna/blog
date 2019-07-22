@@ -15,7 +15,7 @@
                 
                 <div class="card-body">
                     <h4 class="card-title">{{ $post->title }}</h4>
-                    <p class="card-text"> Published: {{ $post->date_published }} by {{ $post->author }}  </p>
+                    <p class="card-text"> Published: {{ $post->date_published }} by {{ $post->user->name }}  </p>
                 </div>
                 <a class="btn btn-primary" href="/posts/{{ $post->id }}">Read More</a>
                 

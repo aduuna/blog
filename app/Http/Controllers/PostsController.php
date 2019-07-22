@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Auth;
 
 class PostsController extends Controller
 {
@@ -39,12 +40,14 @@ class PostsController extends Controller
     {
         $validated = request()->validate([
             'title' => ['required', 'min:3', 'max:255'],
-            'author' => ['required', 'min:3', 'max:100'],
             'body' => ['required', 'min:3'],
         ]);
 
         $validated['date_published'] = \Carbon\Carbon::now();
-        Post::create($validated);
+
+        $post = Post::create($validated);
+        $post->user_id = Auth::user()->id;
+        $post->save();
 
         return redirect('/posts');
     }

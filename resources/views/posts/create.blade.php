@@ -27,11 +27,6 @@
             </div>
 
             <div class="form-group">
-                <label for="author">Author</label>
-                <input class="form-control" type="text" name="author" id="author" value="{{ old('author') }}">
-            </div>
-
-            <div class="form-group">
                 <label for="body">Body</label>
                 <textarea class="form-control" name="body" id="" cols="30" rows="10">{{ old('body') }}</textarea>
             </div>

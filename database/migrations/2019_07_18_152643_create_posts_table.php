@@ -18,7 +18,6 @@ class CreatePostsTable extends Migration
             $table->timestamps();
             $table->text('title');
             $table->text('body');
-            $table->string('author');
             $table->unsignedInteger('user_id')->nullable();
             $table->dateTimeTz('date_published');
         });
