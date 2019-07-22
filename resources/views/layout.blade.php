@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title', "Blog")</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
@@ -18,7 +19,7 @@
             <div class="navbar-nav">
                 <a class="navbar-brand">Blog</a>
             </div>
-            <button class="btn btn-dark my-2 my-sm-0" type="submit">Login</button>
+            <button class="btn btn-dark my-2 my-sm-0" type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</button>
         </div>
     </nav>
 
