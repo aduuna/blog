@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Commment extends Model
+class Comment extends Model
 {
     protected $fillable = [
         'body' 
@@ -25,5 +25,4 @@ class Commment extends Model
     {
         $this->belongsTo('App\Post');
     }
-    
 }

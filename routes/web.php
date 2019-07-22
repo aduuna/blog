@@ -29,3 +29,10 @@ Route::get('/contact', 'PageController@contact');
 */
 
 Route::resource('/posts', 'PostsController');
+
+
+Route::post('/posts/{post}/comments', 'CommentsController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
