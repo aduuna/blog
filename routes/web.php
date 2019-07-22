@@ -11,11 +11,9 @@
 |
 */
 
-Route::get('/', 'PageController@home');
-
-Route::get('/about', 'PageController@about');
-
-Route::get('/contact', 'PageController@contact');
+Route::get('/', 'HomeController@home')->name('home');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/contact', 'HomeController@contact')->name('contact');
 
 
 /*
@@ -30,9 +28,6 @@ Route::get('/contact', 'PageController@contact');
 
 Route::resource('/posts', 'PostsController');
 
-
 Route::post('/posts/{post}/comments', 'CommentsController@store');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

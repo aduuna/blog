@@ -1,13 +1,14 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
         <div class="row float-right">
-            <a href="/posts/{{ $post->id }}/edit"><div class="button btn btn-primary"> edit </div></a> 
+            <a href="/posts/{{ $post->id }}/edit"><div class="button btn btn-primary"><i class="fa fa-pencil-square" aria-hidden="true"> </i> edit </div></a>
+            <span> </span> 
             <form action="/posts/{{ $post->id }}" method="post">
                 {{ method_field('DELETE') }}
                 {{ csrf_field() }}
-                <input type=submit class="button btn btn-danger" value="delete"> 
+                <button class="btn btn-danger" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i> delete</button>
             </form>
         </div>
     </div>
@@ -49,7 +50,7 @@
                 @csrf
                 <div class="form-group form-inline row">
                     <input type="text" name="comment" id="comment" class="form-control col-11" placeholder="Add a comment" aria-describedby="helpId">
-                    <button type="submit" class="btn btn-info">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                     @if ($errors->any())
                     <small class="form-text text-danger">{{ $errors->all()[0] }}</small>
                     @endif

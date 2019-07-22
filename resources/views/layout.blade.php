@@ -8,46 +8,24 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <style></style>
 </head>
-<body>
+<body class="bg-light">
 
     @section('navbar')
 
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-dark bg-info">
     <div class="container">
             <div class="navbar-nav">
-                <a class="navbar-brand">Blog</a>
+                <a class="navbar-brand text-white">Blog</a>
             </div>
-            <button class="btn btn-dark my-2 my-sm-0" type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</button>
+            <button class="btn btn-outline-light  my-2 my-sm-0" type="submit"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</button>
         </div>
     </nav>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarnavAltMarkup" aria-controls="navbarnavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarnavAltMarkup">
-                <div class="navbar-nav">
-                    <div class="nav-item"><a class="nav-link" href="/">Home</a></div>
-                    <div class="nav-item"><a class="nav-link" href="/about">About</a></div>
-                    <div class="nav-item"><a class="nav-link" href="/contact">Contact</a></div>
-                    <div class="nav-item"><a class="nav-link" href="/posts">Blog</a></div>
-                </div>
-            </div>
-
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
-    <br>
     @show
 
-    <div class="container-fluid">
+    <div class="container-fluid main-page">
+        <br>
         
         <div class="container content">
             
