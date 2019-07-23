@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Post;
-use App\User;
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
@@ -43,8 +42,9 @@ class CommentsController extends Controller
             'comment' => ['min:1', 'max:320']
         ]); 
         $comment = new Comment;
-        $comment->body = request('comment');
+        $comment->body = $validated['comment'];
         $comment->post_id = $post->id;
+        $comment->user_id = request()->user()->id;
         
         $comment->save();
 
