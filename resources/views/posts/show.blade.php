@@ -3,13 +3,16 @@
 @section('content')
     <div class="container">
         <div class="row float-right">
-            <a href="/posts/{{ $post->id }}/edit"><div class="button btn btn-primary"><i class="fa fa-pencil-square" aria-hidden="true"> </i> edit </div></a>
-            <span> </span> 
-            <form action="/posts/{{ $post->id }}" method="post">
-                {{ method_field('DELETE') }}
-                {{ csrf_field() }}
-                <button class="btn btn-danger" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i> delete</button>
-            </form>
+            @can('update', $post)
+                <a href="/posts/{{ $post->id }}/edit"><div class="button btn btn-primary mr-md-2"><i class="fa fa-pencil-square" aria-hidden="true"> </i> edit </div></a>
+            @endcan
+            @can('delete', $post)
+                <form action="/posts/{{ $post->id }}" method="post">
+                    {{ method_field('DELETE') }}
+                    {{ csrf_field() }}
+                    <button class="btn btn-danger" type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i> delete</button>
+                </form>
+            @endcan
         </div>
     </div>
     <br>
@@ -35,11 +38,13 @@
                         <i class="fa fa-thumbs-up" aria-hidden="true"> 0 </i>
                         <i class="fa fa-thumbs-down" aria-hidden="true"> 0 </i>
                     </div>
+                    @can('update', $comment)
                     <div class="float-right">
-                        <i class="fa fa-pencil text-primary" aria-hidden="true"></i>
+                        <i class="fa fa-pencil text-info" aria-hidden="true"></i>
                         <span> </span>
                         <i class="fa fa-trash text-danger" aria-hidden="true"></i>
                     </div>
+                    @endcan
                 </div>
 
                 </div>

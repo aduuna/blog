@@ -8,6 +8,15 @@ use Auth;
 
 class PostsController extends Controller
 {
+    /* 
+     * Set View Protection for Posts
+     * 
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -71,6 +80,8 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
+        $this->authorize('update', $post);
+
         return view('posts.edit', compact('post'));
     }
 
@@ -83,7 +94,8 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $this->authorize('update', $post);
+
         $post->update([
             'title'=> request('title'),
             'author'=> request('author'),
@@ -102,7 +114,8 @@ class PostsController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $this->authorize('delete', $post);
+
         $post->delete();
 
         return redirect('/posts');

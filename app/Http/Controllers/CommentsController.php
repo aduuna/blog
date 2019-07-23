@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 
 class CommentsController extends Controller
 {
+    /* 
+     * Set View Protection for comments
+     * 
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     /**
      * Display a listing of the resource.
      *
