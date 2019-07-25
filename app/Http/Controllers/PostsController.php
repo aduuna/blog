@@ -51,6 +51,7 @@ class PostsController extends Controller
             'title' => ['required', 'min:3', 'max:255'],
             'body' => ['required', 'min:3'],
         ]);
+        dd($validated);
 
         $validated['date_published'] = \Carbon\Carbon::now();
 
