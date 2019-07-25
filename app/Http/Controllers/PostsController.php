@@ -56,6 +56,7 @@ class PostsController extends Controller
 
         $post = Post::create($validated);
         $post->user_id = Auth::user()->id;
+        dd($post);
         $post->save();
 
         return redirect('/posts');

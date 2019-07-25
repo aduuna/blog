@@ -22,7 +22,7 @@
     <br>
     @endif
     <div class="form">
-        <form action="/posts/" method="post">
+        <form action="/posts/" method="POST">
             {{ csrf_field() }}
 
             <div class="form-group">
@@ -32,7 +32,7 @@
 
             <div id="form group">
                 <label for="body">Body</label>
-                <textarea class="form-control" name="body" id="" cols="30" rows="10">{{ old('body') }}</textarea>
+                <textarea class="form-control" name="body" id="body" cols="30" rows="10">{{ old('body') }}</textarea>
             </div>
             
             <br>
