@@ -60,7 +60,7 @@ class PostsController extends Controller
         dd($post);
         $post->save();
 
-        return redirect('/posts');
+        return redirect('/about');
     }
 
     /**
