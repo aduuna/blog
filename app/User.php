@@ -53,18 +53,18 @@ class User extends Authenticatable
         return $this->hasMany('App\Comment');
     }
 
-    // /**
-    //  * Convenient function for checking SuperAdmin
-    //  * 
-    //  * Only One SuperAdmin is Allowed on the system
-    //  * i.e. The First User added
-    //  * 
-    //  * @return bool
-    //  */
-    // public function isSuperAdmin()
-    // {
-    //     return $this->id == 1;
-    // }
+    /**
+     * Convenient function for checking SuperAdmin
+     * 
+     * Only One SuperAdmin is Allowed on the system
+     * i.e. The First User added
+     * 
+     * @return bool
+     */
+    public function isSuperUser()
+    {
+        return $this->id == 1;
+    }
 
     // /**
     //  * Convenient function for checking Staff

@@ -19,7 +19,7 @@
     <h2> {{ $post->title }} </h2>
     <h6> {{ $post->author }} </h6>
     <p> {{ $post->date_published }} </p>
-    <p> {{ $post->body }} </p>
+    <p style="white-space: pre-line"> {{ $post->body }} </p>
 
     <div class="jumbotron">
         <div class="container">
