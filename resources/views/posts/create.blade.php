@@ -22,7 +22,7 @@
     <br>
     @endif
     <div class="form">
-        <form action="/posts/" method="POST">
+        <form action="/posts" method="POST">
             {{ csrf_field() }}
 
             <div class="form-group">
