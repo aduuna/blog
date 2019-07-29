@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Comment;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CommentAddedMail;
 
 class CommentsController extends Controller
 {
@@ -56,6 +58,9 @@ class CommentsController extends Controller
         $comment->user_id = request()->user()->id;
         
         $comment->save();
+
+        $post_owner = $comment->post->user;
+        Mail::to($post_owner)->send(new CommentAddedMail($post_owner, $comment));
 
         return back();
     }
